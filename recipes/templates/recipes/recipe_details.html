@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recipe Details{% endblock %}
+
+{% block content %}
+   
+    <h2>{{ recipe.title }}</h2>
+    <p>{{ recipe.description }}</p>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <img src="{% static 'recipe_images/'|add:recipe.image %}" alt="{{ recipe.title }} Image">
+    
+{% endblock %}
