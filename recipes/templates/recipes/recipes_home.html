@@ -1,76 +1,77 @@
+{% extends 'base.html' %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Recipes Overview{% endblock %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipes Overview</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+{% block content %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
 
-        header {
-            background-color: #4285f4;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+        background-color: #4285f4;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
 
-        header img {
-            max-width: 100%;
-            height: auto;
-        }
+    header img {
+        max-width: 100%;
+        height: auto;
+    }
 
-        main {
-            padding: 20px;
-        }
+    main {
+        padding: 20px;
+    }
 
-        main h2 {
-            font-size: 24px;
-            color: #4285f4;
-        }
+    main h2 {
+        font-size: 24px;
+        color: #4285f4;
+    }
 
-        main p {
-            font-size: 18px;
-        }
+    main p {
+        font-size: 18px;
+    }
 
-        main a {
-            display: block;
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #4285f4;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            border-radius: 5px;
-        }
+    main a {
+        display: block;
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #4285f4;
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+    }
 
-        main a:hover {
-            background-color: #3a73bf;
-        }
+    main a:hover {
+        background-color: #3a73bf;
+    }
 
-        footer {
-            background-color: #4285f4;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
+    footer {
+        background-color: #4285f4;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 
-<body>
-    <header>
+    main img {
+        width: 200px; /* Set a fixed width */
+        height: 150px; /* Set a fixed height */
+        object-fit: cover; /* Maintain aspect ratio and cover the specified dimensions */
+    }
+</style>
+    
+<header>
         <h1>Recipes Overview</h1>
         <img src="{% static 'welcome.jpg' %}" alt="Welcome Image">
     </header>
@@ -78,7 +79,7 @@
         {% for recipe in recipes %}
             <div>
                 <h2>{{ recipe.title }}</h2>
-                <img src="{% static 'recipe_images/'|add:recipe.image %}" alt="{{ recipe.title }} Image">
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.title }} Image">
                 <p>{{ recipe.description }}</p>
                 <p>Cooking Time: {{ recipe.cooking_time }} minutes</p>
                 <a href="{% url 'recipes:recipe_details' recipe.id %}">View Details</a>
@@ -88,6 +89,4 @@
     <footer>
         <p>© 2024 Recipe Web App</p>
     </footer>
-</body>
-
-</html>
+{% endblock %}
