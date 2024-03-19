@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from .models import Recipe
 from django.contrib.auth.views import LogoutView
+import pandas as pd
 
 class RecipesHomeView(View):
     def get(self, request):
@@ -31,3 +32,25 @@ class LogoutSuccessView(TemplateView):
 
 class CustomLogoutView(LogoutView):
     next_page = '/logout/success/'
+
+class ShowAllRecipesView(View):
+    def get(self, request):
+        recipes = Recipe.objects.all()
+        return render(request, 'show_all_recipes.html', {'recipes': recipes})
+
+class SearchResultsView(View):
+    def get(self, request):
+        query = request.GET.get('query')
+        if query:
+            search_results = Recipe.objects.filter(title__icontains=query)
+        else:
+            search_results = Recipe.objects.all()
+        return render(request, 'search_results.html', {'search_results': search_results})    
+
+    def post(self, request):
+        query = request.POST.get('search_criteria')
+        if query:
+            search_results = Recipe.objects.filter(title__icontains=query)
+        else:
+            search_results = Recipe.objects.all()
+        return render(request, 'search_results.html', {'search_results': search_results})
