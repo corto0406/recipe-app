@@ -8,6 +8,8 @@ from django.utils.decorators import method_decorator
 from .models import Recipe
 from django.contrib.auth.views import LogoutView
 import pandas as pd
+from .forms import RecipeForm
+from django.views.generic import CreateView
 
 class RecipesHomeView(View):
     def get(self, request):
@@ -54,3 +56,29 @@ class SearchResultsView(View):
         else:
             search_results = Recipe.objects.all()
         return render(request, 'search_results.html', {'search_results': search_results})
+    
+
+class AboutMeView(TemplateView):
+    template_name = 'about_me.html'
+
+
+class AddRecipeView(TemplateView):
+  @login_required
+  def add_recipe(request):
+    if request.method == 'POST':
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            recipe = form.save(commit=False)
+            recipe.author = request.user
+            recipe.save()
+            return redirect('show_all_recipes')
+    else:
+        form = RecipeForm()
+    return render(request, 'add_recipe.html', {'form': form})   
+
+
+
+class AddRecipeView(CreateView):
+    model = Recipe
+    template_name = 'add_recipe.html'  # Specify the template name
+    fields = ['title', 'description', 'cooking_time', 'image']  # Specify the fields to be displayed in the form   

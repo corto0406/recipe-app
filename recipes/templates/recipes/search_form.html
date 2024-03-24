@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Search Recipes</h1>
-    <form method="post" action="{% url 'recipes:search_recipes' %}">
+    <form method="post" action="{% url 'recipes:search_results' %}">
         {% csrf_token %}
         <label for="search_criteria">Search:</label>
         <input type="text" id="search_criteria" name="search_criteria">
