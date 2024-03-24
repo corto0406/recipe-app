@@ -12,7 +12,7 @@ gunicorn==21.2.0
 importlib_resources==6.3.1
 kiwisolver==1.4.5
 matplotlib==3.7.5
-numpy==1.24.4
+numpy==1.21.5
 package_name==0.1
 packaging==24.0
 pandas==2.0.3
