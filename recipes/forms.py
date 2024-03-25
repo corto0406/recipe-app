@@ -1,10 +1,10 @@
 # forms.py
 from django import forms
-from .models import Recipe
+from .models import RecipesRecipe
 
 class RecipeForm(forms.ModelForm):
     class Meta:
-        model = Recipe
+        model = RecipesRecipe
         fields = ['title', 'description', 'cooking_time']  # Add other fields as needed
 
 # test_forms_views.py

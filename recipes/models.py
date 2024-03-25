@@ -1,12 +1,11 @@
 from django.db import models
 
-class Recipe(models.Model):
+class RecipesRecipe(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     cooking_time = models.IntegerField()
-    image = models.ImageField(upload_to='recipe_images/') 
+    image = models.CharField(max_length=100)
 
-
-    def __str__(self):
-        return self.title
-
+    class Meta:
+        managed = True  # Change this from False to True
+        db_table = 'recipes_recipe'

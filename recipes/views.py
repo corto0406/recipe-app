@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-from .models import Recipe
+from .models import RecipesRecipe
 from django.contrib.auth.views import LogoutView
 import pandas as pd
 from .forms import RecipeForm
@@ -79,6 +79,6 @@ class AddRecipeView(TemplateView):
 
 
 class AddRecipeView(CreateView):
-    model = Recipe
+    model = RecipesRecipe
     template_name = 'add_recipe.html'  # Specify the template name
     fields = ['title', 'description', 'cooking_time', 'image']  # Specify the fields to be displayed in the form   
