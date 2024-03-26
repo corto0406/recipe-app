@@ -172,17 +172,22 @@
     </nav>
 
     <main>
-        {% for recipe in recipes %}
-            <div class="recipe-card">
-                <img src="{{ recipe.image.url }}" alt="{{ recipe.title }} Image">
-                <div class="recipe-card-content">
-                    <h2>{{ recipe.title }}</h2>
-                    <p>{{ recipe.description }}</p>
-                    <p>Cooking Time: {{ recipe.cooking_time }} minutes</p>
-                    <a href="{% url 'recipes:recipe_details' recipe.id %}">View Details</a>
-                </div>
+        {% if recipes %}
+    {% for recipe in recipes %}
+        <div class="recipe-card">
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.title }} Image">
+            <div class="recipe-card-content">
+                <h2>{{ recipe.title }}</h2>
+                <p>{{ recipe.description }}</p>
+                <p>Cooking Time: {{ recipe.cooking_time }} minutes</p>
+                <a href="{% url 'recipes:recipe_details' recipe.id %}">View Details</a>
             </div>
-        {% endfor %}
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No recipes found</p>
+{% endif %}
+
     </main>
     
 
