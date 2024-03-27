@@ -18,7 +18,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=255)),
                 ('description', models.TextField()),
                 ('cooking_time', models.IntegerField()),
-                ('image', models.CharField(max_length=100)),
+                ('image', models.ImageField(max_length=100)),
             ],
             options={
                 'db_table': 'recipes_recipe',
