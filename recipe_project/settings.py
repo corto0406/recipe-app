@@ -3,7 +3,7 @@ import os
 import dj_database_url
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8hmo67$m5=-x9fwf%n0+_kcn6vx9^epx^^n0_kak$#1!g_u&^z')
 
@@ -55,7 +55,7 @@ WSGI_APPLICATION = 'recipe_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Correct usage of os.path.join()
     }
 }
 LANGUAGE_CODE = 'en-us'
