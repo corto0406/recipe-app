@@ -53,10 +53,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'recipe_project.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),  # Correct usage of os.path.join()
-    }
+    'default': dj_database_url.config(default='postgres://localhost')
 }
 LANGUAGE_CODE = 'en-us'
 
