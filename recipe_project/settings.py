@@ -9,7 +9,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8hmo67$m5=-x9fwf%n0+_
 
 DEBUG = os.environ.get('DEBUG', 'False').lower() == 'false'
 
-ALLOWED_HOSTS = ['nem-rep-4df2ade834c2.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['https://peaceful-shore-26465-668c313a118c.herokuapp.com/', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
