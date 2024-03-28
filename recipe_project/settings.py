@@ -52,9 +52,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'recipe_project.wsgi.application'
 
+import dj_database_url
+
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://localhost')
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
+
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
