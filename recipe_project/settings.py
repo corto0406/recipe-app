@@ -1,5 +1,10 @@
 from pathlib import Path
 import os
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+}
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -50,16 +55,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'recipe_project.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'RecipesRecipe',
-        'USER': 'nemanjacf',
-        'PASSWORD': 'sibinjanin1910',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
-}
+
+
 
 LANGUAGE_CODE = 'en-us'
 
