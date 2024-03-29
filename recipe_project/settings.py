@@ -6,12 +6,12 @@ import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Database Configuration
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
 }
+
 
 # Secret key
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8hmo67$m5=-x9fwf%n0+_kcn6vx9^epx^^n0_kak$#1!g_u&^z')
@@ -20,7 +20,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8hmo67$m5=-x9fwf%n0+_
 DEBUG = os.environ.get('DEBUG', 'False').lower() != 'true'
 
 # Allowed hosts
-ALLOWED_HOSTS = ['gentle-crag-28994-89eb3c5e6228.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['cryptic-inlet-76938-e0c83546b382.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Installed apps
 INSTALLED_APPS = [
@@ -98,5 +98,5 @@ MEDIA_URL = '/media/recipe_images/'
 # Login redirect URL
 LOGIN_REDIRECT_URL = '/'
 
-# Append slash
-APPEND_SLASH = False
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
