@@ -20,7 +20,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8hmo67$m5=-x9fwf%n0+_
 DEBUG = os.environ.get('DEBUG', 'False').lower() != 'true'
 
 # Allowed hosts
-ALLOWED_HOSTS = ['', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['nemanja-food-3b44c7048bc6.herokuapp.com', '127.0.0.1', 'localhost']
 
 # Installed apps
 INSTALLED_APPS = [
