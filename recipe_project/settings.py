@@ -1,15 +1,13 @@
 from pathlib import Path
 import os
-import dj_database_url
 
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-8hmo67$m5=-x9fwf%n0+_kcn6vx9^epx^^n0_kak$#1!g_u&^z')
 
-DEBUG = os.environ.get('DEBUG', 'False').lower() == 'false'
+DEBUG = os.environ.get('DEBUG', 'False').lower() != 'true'
 
-ALLOWED_HOSTS = ['https://peaceful-shore-26465-668c313a118c.herokuapp.com/', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['peaceful-shore-26465-668c313a118c.herokuapp.com', '127.0.0.1', 'localhost']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -52,18 +50,24 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'recipe_project.wsgi.application'
 
-import dj_database_url
-
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'RecipesRecipe',
+        'USER': 'nemanjacf',
+        'PASSWORD': 'sibinjanin1910',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
-
 
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
 USE_I18N = True
+
+USE_L10N = True
 
 USE_TZ = True
 
