@@ -16,7 +16,6 @@ package_name==0.1
 packaging==24.0
 pandas==2.0.3
 pillow==10.2.0
-psycopg2-binary==2.9.9
 pyparsing==3.1.2
 python-dateutil==2.9.0.post0
 pytz==2024.1
