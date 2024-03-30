@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-import dj_database_url
+
 
 # Base directory of your project
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -98,5 +98,4 @@ MEDIA_URL = '/media/recipe_images/'
 # Login redirect URL
 LOGIN_REDIRECT_URL = '/'
 
-# Append slash
-APPEND_SLASH = False
+

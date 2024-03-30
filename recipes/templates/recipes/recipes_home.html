@@ -1,197 +1,209 @@
 {% load static %}
 
 {% block content %}
-    <style>
-        /* Add your CSS styles here */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f7f7f7;
-            color: #333;
-            margin: 0;
-            padding: 0;
-        }
+<style>
+    /* Add your CSS styles here */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f7f7f7;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
 
-        header {
-            background-color: #4285f4;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
+    header {
+        background-color: #4285f4;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
 
-        header img {
-            max-width: 100%;
-            height: auto;
-        }
+    header img {
+        max-width: 100%;
+        height: auto;
+    }
 
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    nav {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            align-items: center;
-        }
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
 
-        nav ul li {
-            margin-right: 10px;
-        }
+    nav ul li {
+        margin-right: 10px;
+    }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+    }
 
-        main {
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: flex-start; /* Align items to the start of the flex container */
-        }
+    main {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        /* Align items to the start of the flex container */
+    }
 
-        .recipe-card {
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 30%;
-            margin-bottom: 20px;
-            overflow: hidden;
-            transition: box-shadow 0.3s ease;
-        }
+    .recipe-card {
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        width: 30%;
+        margin-bottom: 20px;
+        overflow: hidden;
+        transition: box-shadow 0.3s ease;
+    }
 
-        .recipe-card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+    .recipe-card:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-        .recipe-card img {
-            width: 100%;
-            height: 200px; /* Set a fixed height for all images */
-            object-fit: cover; /* Maintain aspect ratio and cover the specified dimensions */
-        }
+    .recipe-card img {
+        width: 100%;
+        height: 200px;
+        /* Set a fixed height for all images */
+        object-fit: cover;
+        /* Maintain aspect ratio and cover the specified dimensions */
+    }
 
-        .recipe-card-content {
-            padding: 20px;
-        }
+    .recipe-card-content {
+        padding: 20px;
+    }
 
-        .recipe-card h2 {
-            font-size: 20px;
-            margin-top: 0;
-        }
+    .recipe-card h2 {
+        font-size: 20px;
+        margin-top: 0;
+    }
 
-        .recipe-card p {
-            font-size: 16px;
-            color: #666;
-        }
+    .recipe-card p {
+        font-size: 16px;
+        color: #666;
+    }
 
-        .recipe-card a {
-            display: block;
-            padding: 10px;
-            background-color: #4285f4;
-            color: #fff;
-            text-decoration: none;
-            text-align: center;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
+    .recipe-card a {
+        display: block;
+        padding: 10px;
+        background-color: #4285f4;
+        color: #fff;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
 
-        .recipe-card a:hover {
-            background-color: #3a73bf;
-        }
+    .recipe-card a:hover {
+        background-color: #3a73bf;
+    }
 
-        footer {
-            background-color: #4285f4;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-        }
+    footer {
+        background-color: #4285f4;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
 
-        .search-container {
-            text-align: center; /* Center the content */
-            margin-bottom: 20px; /* Add some space below the search bar */
-        }
+    .search-container {
+        text-align: center;
+        /* Center the content */
+        margin-bottom: 20px;
+        /* Add some space below the search bar */
+    }
 
-        .search-form {
-            display: inline-block; /* Display the form as inline-block */
-        }
+    .search-form {
+        display: inline-block;
+        /* Display the form as inline-block */
+    }
 
-        .search-form input[type="text"],
-        .search-form button {
-            padding: 10px; /* Add padding to input and button */
-            font-size: 16px; /* Increase font size */
-            border: 1px solid #ccc; /* Add border */
-            border-radius: 5px; /* Add border radius */
-            margin-right: 10px; /* Add some space between input and button */
-        }
+    .search-form input[type="text"],
+    .search-form button {
+        padding: 10px;
+        /* Add padding to input and button */
+        font-size: 16px;
+        /* Increase font size */
+        border: 1px solid #ccc;
+        /* Add border */
+        border-radius: 5px;
+        /* Add border radius */
+        margin-right: 10px;
+        /* Add some space between input and button */
+    }
 
-        .search-form button {
-            background-color: #4285f4;
-            color: #fff;
-            border: none; /* Remove border */
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
+    .search-form button {
+        background-color: #4285f4;
+        color: #fff;
+        border: none;
+        /* Remove border */
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
 
-        .search-form button:hover {
-            background-color: #3a73bf;
-        }
-    </style>
+    .search-form button:hover {
+        background-color: #3a73bf;
+    }
+</style>
 
-    <header>
-        <h1>Recipes Overview</h1>
-        <img src="{% static 'welcome.jpg' %}" alt="Welcome Image">
-    </header>
+<header>
+    <h1>Recipes Overview</h1>
+    <img src="{% static 'welcome.jpg' %}" alt="Welcome Image">
+</header>
 
-    <nav>
-        <ul>
-            <li><a href="{% url 'recipes:show_all_recipes' %}">Show All Recipes</a></li>
-            <li><a href="{% url 'recipes:add_recipe' %}">Add Recipe</a></li>
-        </ul>
-        <div class="search-container">
-            <form class="search-form" method="post" action="{% url 'recipes:search_results' %}">
-                {% csrf_token %}
-                <input type="text" id="search_criteria" name="search_criteria" placeholder="Search Recipes...">
-                <button type="submit">Search</button>
-            </form>
-        </div>
-        <ul>
-            <li>
-                <a href="{% url 'recipes:logout' %}">Logout</a>
-            </li>
-        </ul>
-    </nav>
+<nav>
+    <ul>
+        <li><a href="{% url 'recipes:show_all_recipes' %}">Show All Recipes</a></li>
+        <li><a href="{% url 'recipes:add_recipe' %}">Add Recipe</a></li>
+    </ul>
+    <div class="search-container">
+        <form class="search-form" method="post" action="{% url 'recipes:search_results' %}">
+            {% csrf_token %}
+            <input type="text" id="search_criteria" name="search_criteria" placeholder="Search Recipes...">
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <ul>
+        <li>
+            <a href="{% url 'recipes:logout' %}">Logout</a>
+        </li>
+    </ul>
+</nav>
 
-    <main>
-        {% if recipes %}
+<main>
+    {% if recipes %}
     {% for recipe in recipes %}
-        <div class="recipe-card">
-            <img src="{{ recipe.image.url }}" alt="{{ recipe.title }} Image">
-            <div class="recipe-card-content">
-                <h2>{{ recipe.title }}</h2>
-                <p>{{ recipe.description }}</p>
-                <p>Cooking Time: {{ recipe.cooking_time }} minutes</p>
-                <a href="{% url 'recipes:recipe_details' recipe.id %}">View Details</a>
-            </div>
+    <div class="recipe-card">
+        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }} Image">
+        <div class="recipe-card-content">
+            <h2>{{ recipe.title }}</h2>
+            <p>{{ recipe.description }}</p>
+            <p>Cooking Time: {{ recipe.cooking_time }} minutes</p>
+            <a href="{% url 'recipes:recipe_details' recipe.pk %}">View Details</a>
         </div>
+    </div>
     {% endfor %}
-{% else %}
+    {% else %}
     <p>No recipes found</p>
-{% endif %}
+    {% endif %}
 
-    </main>
-    
+</main>
 
-    <footer>
-        <p>© 2024 Recipe Web App</p>
-    </footer>
+
+<footer>
+    <p>© 2024 Recipe Web App</p>
+</footer>
 {% endblock %}
