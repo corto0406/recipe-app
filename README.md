@@ -1,24 +1,65 @@
 # recipe-app
 
-Web-application built with Python using the Django framework. 
+This web application is built with Python using the Django framework.
 
-## How to get the project running:
+## Getting Started:
 
-*Note: You will need to work in a virtual environment with Django installed*
+**Prerequisites:** You will need to work in a virtual environment with Django installed.
 
-### If you have not yet created a virtual environment on your machine:
+### Setting up a Virtual Environment:
 
-- To create a virtual environment you will need to install virtualenvwrapper `pip install virtualenvwrapper`
-- Once installed run `mkvirtualenv test-environment`
-- Then run `workon a2-ve-recipeapp` to load the installed environment
-- Finally, run `pip install django` (mac) or `py -m pip install Django` (win) to install Django in the environment
+If you haven't created a virtual environment on your machine yet:
 
-### Once in you virtual environment:
+1. Install virtualenvwrapper by running:
+    ```
+    pip install virtualenvwrapper
+    ```
 
-- Navigate to root folder in terminal
-- Run the following: `python manange.py runserver`
-- In browser, navigate to http://127.0.0.1:8000/
+2. Create a virtual environment by running:
+    ```
+    mkvirtualenv test-environment
+    ```
 
-Users are able to do the following:
-- View all recipes in list
-- Click on any recipe to view it's details
+3. Activate the environment by running:
+    ```
+    workon a2-ve-recipeapp
+    ```
+
+4. Install Django in the environment by running:
+    - For macOS:
+        ```
+        pip install django
+        ```
+    - For Windows:
+        ```
+        py -m pip install Django
+        ```
+
+### Running the Application:
+
+1. Navigate to the root folder of the project in your terminal.
+
+2. Run the following command:
+    ```
+    python manage.py runserver
+    ```
+
+3. Open your web browser and go to [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+
+### Features:
+
+Users can perform the following actions:
+
+- View all recipes in a list.
+- Click on any recipe to view its details.
+
+### Test Credentials:
+
+Use the following credentials to test the app:
+
+- **Username:** nemanja
+- **Password:** samuel123
+
+### Live Demo:
+
+You can also access the app through the following link: [Recipe App](https://thawing-bayou-02420-bc484a50611f.herokuapp.com/).
